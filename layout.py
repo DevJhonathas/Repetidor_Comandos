@@ -21,7 +21,7 @@ class tela:
         self.root.maxsize(width=1920, height=1080)
         self.root.minsize(width=535, height=530)
         self.root.geometry("500x500")
-        self.root.resizable(True, True)
+        self.root.resizable(False, False)
         self.root.configure(background="#1e90ff")
 
     def Frames_tela(self):
@@ -81,4 +81,9 @@ class tela:
         self.Lista.column("#2", width=300)
 
         self.Lista.place(relx=0.01, rely=0.01, relwidth=0.95, relheight=0.85)
+
+        self.Scroll_lista = Scrollbar(self.Segundo_frame, orient='vertical')
+        self.Lista.configure(yscroll=self.Scroll_lista.set)
+        self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
+        
 tela()
