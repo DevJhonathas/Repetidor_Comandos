@@ -3,7 +3,12 @@ from tkinter import *
 from tkinter import ttk
 
 root = Tk()
-class tela:
+class Function:
+    def Botao_limpar(self):
+        self.label_comando.delete(0, END)
+        self.label_chave_acesso.delete(0, END)
+
+class Tela(Function):
     def __init__(self): #Classe iniciadora
         self.root = root
         self.Configuracao_tela()
@@ -31,7 +36,7 @@ class tela:
     def Botoes_Primeiro_frames(self):
         #criação botão de limpar(todos os comandos escritos)
         self.button_limpar = Button(self.Primeiro_frame, text="Limpar", bd=3, bg='#dddddd', fg='black', 
-                                    font= ('verdana', '8', ''))
+                                    font= ('verdana', '8', ''), command=self.Botao_limpar)
         self.button_limpar.place(relx=0.23, rely=0.45, relwidth=0.14, relheight=0.13)
         #criação botão de enviar(inseri no banco automáticamente)
         self.button_enviar = Button(self.Primeiro_frame, text="Enviar", bd=3, bg='#dddddd', fg='black', 
@@ -55,16 +60,16 @@ class tela:
         self.label_comando = Label(self.Primeiro_frame, text="Comando:", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', 'bold'))
         self.label_comando.place(relx=0.02, rely=0.01, relwidth=0.2, relheight=0.12)
-        self.codigo_entry = Entry(self.Primeiro_frame, bd=2, bg='white', fg='black', 
+        self.label_comando = Entry(self.Primeiro_frame, bd=2, bg='white', fg='black', 
                                     font= ('verdana', '8', 'bold'))
-        self.codigo_entry.place(relx=0.23, rely=0.01, relwidth=0.6, relheight=0.12)
+        self.label_comando.place(relx=0.23, rely=0.01, relwidth=0.6, relheight=0.12)
 
         self.label_chave_acesso = Label(self.Primeiro_frame, text="Chave_acesso:", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', 'bold'))
         self.label_chave_acesso.place(relx=0.02, rely=0.15, relwidth=0.2, relheight=0.12)
-        self.codigo_entry = Entry(self.Primeiro_frame, bd=2, bg='white', fg='black', 
+        self.label_chave_acesso = Entry(self.Primeiro_frame, bd=2, bg='white', fg='black', 
                                     font= ('verdana', '8', 'bold'))
-        self.codigo_entry.place(relx=0.23, rely=0.15, relwidth=0.6, relheight=0.12)
+        self.label_chave_acesso.place(relx=0.23, rely=0.15, relwidth=0.6, relheight=0.12)
 
     def Lista_segundo_frame(self):
         #Lista no qual irar ficar os resultados do looping das label
@@ -83,4 +88,4 @@ class tela:
         self.Lista.configure(yscroll=self.Scroll_lista.set)
         self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
         
-tela()
+Tela()
