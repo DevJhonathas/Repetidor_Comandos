@@ -1,9 +1,10 @@
 from tkinter import font
 from tkinter import *
 from tkinter import ttk
+import db_connect
 
 root = Tk()
-class Function:
+class Function():
     def Botao_limpar(self):
         self.label_comando.delete(0, END)
         self.label_chave_acesso.delete(0, END)
@@ -87,5 +88,5 @@ class Tela(Function):
         self.Scroll_lista = Scrollbar(self.Segundo_frame, orient='vertical')
         self.Lista.configure(yscroll=self.Scroll_lista.set)
         self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
-        
+
 Tela()
