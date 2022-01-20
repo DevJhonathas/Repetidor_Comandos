@@ -3,7 +3,6 @@ from tkinter import *
 from tkinter import ttk
 from db_connect import banco_dados
 
-
 root = Tk()
 class Function():
     def Botao_limpar(self):
