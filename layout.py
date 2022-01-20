@@ -1,15 +1,17 @@
 from tkinter import font
 from tkinter import *
 from tkinter import ttk
-import db_connect
+from db_connect import banco_dados
+
 
 root = Tk()
 class Function():
     def Botao_limpar(self):
         self.label_comando.delete(0, END)
         self.label_chave_acesso.delete(0, END)
+        
 
-class Tela(Function):
+class Tela(Function, banco_dados):
     def __init__(self): #Classe iniciadora
         self.root = root
         self.Configuracao_tela()
@@ -17,6 +19,7 @@ class Tela(Function):
         self.Botoes_Primeiro_frames()
         self.Label_primeiro_frame()
         self.Lista_segundo_frame()
+        self.MontaTabelas()
         self.root.mainloop()
     
     def Configuracao_tela(self):
@@ -88,5 +91,4 @@ class Tela(Function):
         self.Scroll_lista = Scrollbar(self.Segundo_frame, orient='vertical')
         self.Lista.configure(yscroll=self.Scroll_lista.set)
         self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
-
 Tela()
