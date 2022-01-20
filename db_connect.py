@@ -20,7 +20,7 @@ class banco_dados:
             CREATE TABLE IF NOT EXISTS clientes(
                 cod INTEGER PRIMARY KEY,
                 comando CHAR(40) NOT NULL,
-                chave_acesso FLOAT(20)
+                chave_acesso INTEGER(20)
                 );
             """)
         self.engine.commit()
