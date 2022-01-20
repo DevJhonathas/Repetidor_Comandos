@@ -1,7 +1,4 @@
-from ssl import cert_time_to_seconds
 import psycopg2
-import pandas as pd
-
 
 class banco_dados:
     def ConexaoDatabase(self):
@@ -17,10 +14,10 @@ class banco_dados:
         self.ConexaoDatabase(); print("Conectando ao banco de dados")
         #Criacao da tabela
         self.Sql_Insert = ("""
-            CREATE public clientes(
+            CREATE TABLE clientes(
                 cod INTEGER PRIMARY KEY,
                 comando CHAR(40) NOT NULL,
-                chave_acesso INTEGER(20)
+                chave_acesso INTEGER(50)
                 );
             """)
         self.cursor.execute(self.Sql_Insert)
