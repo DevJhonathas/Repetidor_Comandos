@@ -3,7 +3,11 @@ import psycopg2
 class banco_dados:
     def ConexaoDatabase(self):
         #configuração para conexao do banco
-        self.connection = psycopg2.connect(user = "postgres", password = "(adm8081)", host = "localhost", port = "5433")
+        self.connection = psycopg2.connect(host = "localhost",
+                                            database= "teste",
+                                            user = "postgres",
+                                            password = "(adm8081)",
+                                            port = "5433")
         #Cursor para usar o SQL
         self.cursor = self.connection.cursor()
 
@@ -14,12 +18,12 @@ class banco_dados:
         self.ConexaoDatabase(); print("Conectando ao banco de dados")
         #Criacao da tabela
         self.Sql_Insert = ("""
-            CREATE TABLE clientes(
-                cod INTEGER PRIMARY KEY,
-                comando CHAR(40) NOT NULL,
-                chave_acesso INTEGER(50)
+            CREATE TABLE IF NOT EXISTS clientes(
+                cod INT PRIMARY KEY,
+                comando VARCHAR(40) NOT NULL,
+                chave_acesso INT
                 );
-            """)
+            """) #Preciso entender o motivo de não estar inserindo no banco
         self.cursor.execute(self.Sql_Insert)
         self.connection.commit()
         self.DesconectaDatabase()
