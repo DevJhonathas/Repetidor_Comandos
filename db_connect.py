@@ -3,11 +3,7 @@ import psycopg2
 class banco_dados:
     def ConexaoDatabase(self):
         #configuração para conexao do banco
-        self.connection = psycopg2.connect(host = "localhost",
-                                            database= "teste",
-                                            user = "postgres",
-                                            password = "(adm8081)",
-                                            port = "5433")
+        self.connection = psycopg2.connect(host = "localhost", database= "teste", user = "postgres", password = "(adm8081)", port = "5433")
         #Cursor para usar o SQL
         self.cursor = self.connection.cursor()
 
@@ -27,3 +23,4 @@ class banco_dados:
         self.cursor.execute(self.Sql_Insert)
         self.connection.commit()
         self.DesconectaDatabase()
+
