@@ -20,7 +20,6 @@ class Tela(Function, banco_dados):
         self.Lista_segundo_frame()
         self.MontaTabelas()
         self.root.mainloop()
-    
     def Configuracao_tela(self):
         self.root.title("Repetidor de comandos")
         self.root.iconbitmap("Image/database.ico")
@@ -28,14 +27,12 @@ class Tela(Function, banco_dados):
         self.root.geometry("400x400")
         self.root.resizable(False, False)
         self.root.configure(background="#1e90ff")
-
     def Frames_tela(self):
         self.Primeiro_frame = Frame(self.root, bd=4, bg="#87ceeb", highlightbackground="#888888", highlightthickness=2)
         self.Primeiro_frame.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46) 
         
         self.Segundo_frame = Frame(self.root, bd=4, bg="#87ceeb", highlightbackground="#888888", highlightthickness=2)
         self.Segundo_frame.place(relx=0.02, rely=0.52, relwidth=0.96, relheight=0.46)       
-    
     def Botoes_Primeiro_frames(self):
         #criação botão de limpar(todos os comandos escritos)
         self.button_limpar = Button(self.Primeiro_frame, text="Limpar", bd=3, bg='#dddddd', fg='black', 
@@ -57,7 +54,6 @@ class Tela(Function, banco_dados):
         self.button_buscar = Button(self.Primeiro_frame, text="Buscar", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''))
         self.button_buscar.place(relx=0.23, rely=0.3, relwidth=0.6, relheight=0.12)
-
     def Label_primeiro_frame(self):
         #Criação Label e entrada do código
         self.label_comando = Label(self.Primeiro_frame, text="Comando:", bd=3, bg='#dddddd', fg='black', 
@@ -73,7 +69,6 @@ class Tela(Function, banco_dados):
         self.label_chave_acesso = Entry(self.Primeiro_frame, bd=2, bg='white', fg='black', 
                                     font= ('verdana', '8', 'bold'))
         self.label_chave_acesso.place(relx=0.23, rely=0.15, relwidth=0.6, relheight=0.12)
-
     def Lista_segundo_frame(self):
         #Lista no qual irar ficar os resultados do looping das label
         self.Lista = ttk.Treeview(self.Segundo_frame, height=3, columns=("Comando", "chave_acesso"))
