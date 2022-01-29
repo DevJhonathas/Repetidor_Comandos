@@ -19,7 +19,7 @@ class banco_dados:
                 comando VARCHAR(40) NOT NULL,
                 chave_acesso INT
                 );
-            """) #Preciso entender o motivo de não estar inserindo no banco
+            """) #Criação da tabela 
         self.cursor.execute(self.Sql_Insert)
         self.connection.commit()
         self.DesconectaDatabase()

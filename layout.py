@@ -1,14 +1,13 @@
-from tkinter import font
 from tkinter import *
+from tkinter import font
 from tkinter import ttk
+from tkinter import Toplevel
 from db_connect import banco_dados
 
 root = Tk()
 class Function():
     def Botao_limpar(self):
-        self.label_comando.delete(0, END)
         self.label_chave_acesso.delete(0, END)
-        
 
 class Tela(Function, banco_dados):
     def __init__(self): #Classe iniciadora
@@ -18,7 +17,7 @@ class Tela(Function, banco_dados):
         self.Botoes_Primeiro_frames()
         self.Label_primeiro_frame()
         self.Lista_segundo_frame()
-        self.MontaTabelas()
+        #self.MontaTabelas()
         self.root.mainloop()
     def Configuracao_tela(self):
         self.root.title("Repetidor de comandos")
@@ -37,13 +36,13 @@ class Tela(Function, banco_dados):
         #criação botão de limpar(todos os comandos escritos)
         self.button_limpar = Button(self.Primeiro_frame, text="Limpar", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''), command=self.Botao_limpar)
-        self.button_limpar.place(relx=0.23, rely=0.45, relwidth=0.14, relheight=0.13)
+        self.button_limpar.place(relx=0.23, rely=0.28, relwidth=0.14, relheight=0.13)
         #criação botão de enviar(inseri no banco automáticamente)
         self.button_enviar = Button(self.Primeiro_frame, text="Enviar", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''))
-        self.button_enviar.place(relx=0.69, rely=0.45, relwidth=0.14, relheight=0.13)
+        self.button_enviar.place(relx=0.69, rely=0.28, relwidth=0.14, relheight=0.13)
         #criação botão de novo(abre a janela para por o comando)
-        self.button_novo = Button(self.Primeiro_frame, text="Novo", bd=3, bg='#dddddd', fg='black', 
+        self.button_novo = Button(self.Primeiro_frame, text="Banco", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''))
         self.button_novo.place(relx=0.85, rely=0.01, relwidth=0.12, relheight=0.12)
         #criação botão de altera(no banco)
@@ -53,22 +52,15 @@ class Tela(Function, banco_dados):
         #criação botão de buscar (no banco)
         self.button_buscar = Button(self.Primeiro_frame, text="Buscar", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''))
-        self.button_buscar.place(relx=0.23, rely=0.3, relwidth=0.6, relheight=0.12)
+        self.button_buscar.place(relx=0.23, rely=0.15, relwidth=0.6, relheight=0.12)
     def Label_primeiro_frame(self):
         #Criação Label e entrada do código
-        self.label_comando = Label(self.Primeiro_frame, text="Comando:", bd=3, bg='#dddddd', fg='black', 
-                                    font= ('verdana', '8', 'bold'))
-        self.label_comando.place(relx=0.02, rely=0.01, relwidth=0.2, relheight=0.12)
-        self.label_comando = Entry(self.Primeiro_frame, bd=2, bg='white', fg='black', 
-                                    font= ('verdana', '8', 'bold'))
-        self.label_comando.place(relx=0.23, rely=0.01, relwidth=0.6, relheight=0.12)
-
         self.label_chave_acesso = Label(self.Primeiro_frame, text="Chave_acesso:", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', 'bold'))
-        self.label_chave_acesso.place(relx=0.02, rely=0.15, relwidth=0.2, relheight=0.12)
+        self.label_chave_acesso.place(relx=0.02, rely=0.01, relwidth=0.2, relheight=0.12)
         self.label_chave_acesso = Entry(self.Primeiro_frame, bd=2, bg='white', fg='black', 
                                     font= ('verdana', '8', 'bold'))
-        self.label_chave_acesso.place(relx=0.23, rely=0.15, relwidth=0.6, relheight=0.12)
+        self.label_chave_acesso.place(relx=0.23, rely=0.01, relwidth=0.6, relheight=0.12)
     def Lista_segundo_frame(self):
         #Lista no qual irar ficar os resultados do looping das label
         self.Lista = ttk.Treeview(self.Segundo_frame, height=3, columns=("Comando", "chave_acesso"))
@@ -85,4 +77,7 @@ class Tela(Function, banco_dados):
         self.Scroll_lista = Scrollbar(self.Segundo_frame, orient='vertical')
         self.Lista.configure(yscroll=self.Scroll_lista.set)
         self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
+    def Tela_Escolha_Banco(self):
+        self.segunda_tela = tkk.Notebook(self)
+        
 Tela()
