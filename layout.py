@@ -4,21 +4,11 @@ from tkinter import ttk
 from tkinter import Toplevel
 from db_connect import banco_dados
 
-root = Tk()
 class Function():
     def Botao_limpar(self):
         self.label_chave_acesso.delete(0, END)
 
 class Tela(Function, banco_dados):
-    def __init__(self): #Classe iniciadora
-        self.root = root
-        self.Configuracao_tela()
-        self.Frames_tela()
-        self.Botoes_Primeiro_frames()
-        self.Label_primeiro_frame()
-        self.Lista_segundo_frame()
-        #self.MontaTabelas()
-        self.root.mainloop()
     def Configuracao_tela(self):
         self.root.title("Repetidor de comandos")
         self.root.iconbitmap("Image/database.ico")
@@ -78,6 +68,4 @@ class Tela(Function, banco_dados):
         self.Lista.configure(yscroll=self.Scroll_lista.set)
         self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
     def Tela_Escolha_Banco(self):
-        self.segunda_tela = tkk.Notebook(self)
-        
-Tela()
+        self.segunda_tela = ttk.Notebook(self)

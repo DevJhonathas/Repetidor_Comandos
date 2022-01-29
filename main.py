@@ -1,7 +1,7 @@
 from layout import *
 from db_connect import *
-
-class iniciador:
+root = Tk()
+class iniciado(Tela):
     def __init__(self): #Classe iniciadora
         self.root = root
         self.Configuracao_tela()
@@ -11,4 +11,4 @@ class iniciador:
         self.Lista_segundo_frame()
         #self.MontaTabelas()
         self.root.mainloop()
-iniciador()
+iniciado()
