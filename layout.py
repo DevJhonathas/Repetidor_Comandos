@@ -1,3 +1,4 @@
+from distutils import command
 from tkinter import *
 from tkinter import font
 from tkinter import ttk
@@ -29,9 +30,9 @@ class Tela(Function, banco_dados):
                                     font= ('verdana', '8', ''))
         self.button_enviar.place(relx=0.69, rely=0.28, relwidth=0.14, relheight=0.13)
         #criação botão de novo(abre a janela para por o comando)
-        self.button_novo = Button(self.Primeiro_frame, text="Banco", bd=3, bg='#dddddd', fg='black', 
-                                    font= ('verdana', '8', ''))
-        self.button_novo.place(relx=0.85, rely=0.01, relwidth=0.12, relheight=0.12)
+        self.button_banco = Button(self.Primeiro_frame, text="Banco", bd=3, bg='#dddddd', fg='black', 
+                                    font= ('verdana', '8', ''), command=self.segunda_tela)
+        self.button_banco.place(relx=0.85, rely=0.01, relwidth=0.12, relheight=0.12)
         #criação botão de altera(no banco)
         self.button_alterar = Button(self.Primeiro_frame, text="Alterar", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''))
@@ -64,5 +65,12 @@ class Tela(Function, banco_dados):
         self.Scroll_lista = Scrollbar(self.Segundo_frame, orient='vertical')
         self.Lista.configure(yscroll=self.Scroll_lista.set)
         self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
-    def Tela_Escolha_Banco(self):
-        self.segunda_tela = ttk.Notebook(self)
+    def segunda_tela(self):
+        self.root2 = Toplevel()
+        self.root2.title("Configuração do banco")
+        self.root2.configure(background = 'lightblue')
+        self.root2.geometry('400x200')
+        self.root2.resizable(False, False)
+        self.root2.transient(self.root)
+        self.root2.focus_force()
+        self.root2.grab_set()
