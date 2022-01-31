@@ -3,10 +3,7 @@ from tkinter import font
 from tkinter import ttk
 from tkinter import Toplevel
 from db_connect import banco_dados
-
-class Function():
-    def Botao_limpar(self):
-        self.label_chave_acesso.delete(0, END)
+from functions import Function
 
 class Tela(Function, banco_dados):
     def Configuracao_tela(self):

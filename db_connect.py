@@ -1,14 +1,15 @@
 import psycopg2
+from layout import *
 
 class banco_dados:
     def ConexaoDatabase(self):
         #configuração para conexao do banco
-        self.connection = psycopg2.connect(host = "localhost", database= "teste", user = "postgres", password = "(adm8081)", port = "5433")
+        self.connection = psycopg2.connect(host = "localhost", database= "Teste_programa", user = "postgres", password = "(adm8081)", port = "5432")
         #Cursor para usar o SQL
         self.cursor = self.connection.cursor()
 
     def DesconectaDatabase(self):
-        self.connection.close()
+        self.connection.close() 
 
     def MontaTabelas(self):
         self.ConexaoDatabase(); print("Conectando ao banco de dados")
@@ -24,3 +25,10 @@ class banco_dados:
         self.connection.commit()
         self.DesconectaDatabase()
 
+    def select_tebela(self): #seleção na tabela
+        self.busca = ("""
+                      Select * from clientes
+                      """)
+        self.cursor.execute(self.Sql_Insert)
+        self.connection.commit()
+        self.DesconectaDatabase()
