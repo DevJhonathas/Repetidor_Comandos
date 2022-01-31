@@ -7,10 +7,8 @@ class banco_dados:
         self.connection = psycopg2.connect(host = "localhost", database= "Teste_programa", user = "postgres", password = "(adm8081)", port = "5433")
         #Cursor para usar o SQL
         self.cursor = self.connection.cursor()
-
     def DesconectaDatabase(self):
         self.connection.close() 
-
     def MontaTabelas(self):
         self.ConexaoDatabase(); print("Conectando ao banco de dados")
         #Criacao da tabela
@@ -24,7 +22,6 @@ class banco_dados:
         self.cursor.execute(self.Sql_Insert)
         self.connection.commit()
         self.DesconectaDatabase()
-
     def select_tebela(self): #seleção na tabela  
         self.busca = ("""
                       Select * from clientes

@@ -3,7 +3,7 @@ from db_connect import *
 from functions import *
 
 root = Tk()
-class iniciado(Tela):
+class Construtor(Tela):
     def __init__(self): #Classe iniciadora
         self.root = root
         self.Configuracao_tela()
@@ -13,4 +13,4 @@ class iniciado(Tela):
         self.Lista_segundo_frame()
         self.MontaTabelas()
         self.root.mainloop()
-iniciado()
+Construtor()
