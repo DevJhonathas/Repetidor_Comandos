@@ -5,3 +5,4 @@ class Function(banco_dados):
     def Botao_limpar(self):
         self.label_chave_acesso.delete(0, END)
     
+    
