@@ -73,4 +73,3 @@ class Tela(Function, banco_dados):
         self.Scroll_lista = Scrollbar(self.PrimeiraTelaFrame2, orient='vertical')
         self.Lista.configure(yscroll=self.Scroll_lista.set)
         self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
-

@@ -1,6 +1,7 @@
 import psycopg2
 from layout import *
 
+
 class banco_dados:
     def ConexaoDatabase(self):
         #configuração para conexao do banco

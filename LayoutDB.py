@@ -13,6 +13,7 @@ class SegundaTelaBanco(Function):
         self.root2 = Toplevel()
         self.configLabel()
         self.botoesSegundaTela()
+        self.root2.iconbitmap("Image/database.ico")
         self.root2.title("Configuração do banco")
         self.root2.configure(background = '#87ceeb')
         self.root2.geometry('300x200+350+100')
@@ -62,6 +63,6 @@ class SegundaTelaBanco(Function):
         self.button_limpar = Button(self.root2, text="Limpar", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''), command=self.Botao_limpar)
         self.button_limpar.place(relx=0.2, rely=0.84, relwidth=0.3, relheight=0.12)
-        self.button_alterar = Button(self.root2, text="Alterar", bd=3, bg='#dddddd', fg='black', 
+        self.button_alterar = Button(self.root2, text="Confirmar", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''))
         self.button_alterar.place(relx=0.6, rely=0.84, relwidth=0.3, relheight=0.12)
