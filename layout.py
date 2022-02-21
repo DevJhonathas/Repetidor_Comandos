@@ -7,6 +7,7 @@ from tkinter import ttk
 from tkinter import Toplevel
 from db_connect import banco_dados
 from functions import Function
+from LayoutDB import *
 
 
 class Tela(Function, banco_dados):
@@ -17,12 +18,14 @@ class Tela(Function, banco_dados):
         self.root.geometry("400x400+350+100")
         self.root.resizable(False, False)
         self.root.configure(background="#1e90ff")
+
     def Frames_tela(self):
         self.PrimeiraTelaFrame = Frame(self.root, bd=4, bg="#87ceeb", highlightbackground="#888888", highlightthickness=2)
         self.PrimeiraTelaFrame.place(relx=0.02, rely=0.02, relwidth=0.96, relheight=0.46) 
         
         self.PrimeiraTelaFrame2 = Frame(self.root, bd=4, bg="#87ceeb", highlightbackground="#888888", highlightthickness=2)
         self.PrimeiraTelaFrame2.place(relx=0.02, rely=0.52, relwidth=0.96, relheight=0.46)       
+    
     def Botoes_Primeiro_frames(self):
         #criação botão de limpar(todos os comandos escritos)
         self.button_limpar = Button(self.PrimeiraTelaFrame, text="Limpar", bd=3, bg='#dddddd', fg='black', 
@@ -44,6 +47,7 @@ class Tela(Function, banco_dados):
         self.button_buscar = Button(self.PrimeiraTelaFrame, text="Buscar", bd=3, bg='#dddddd', fg='black', 
                                     font= ('verdana', '8', ''))
         self.button_buscar.place(relx=0.23, rely=0.15, relwidth=0.6, relheight=0.12)
+   
     def LabelPrimeiraTelaFrame(self):
         #Criação Label e entrada do código
         self.label_chave_acesso = Label(self.PrimeiraTelaFrame, text="Chave_acesso:", bd=3, background='#87ceeb', fg='black', 
@@ -52,6 +56,7 @@ class Tela(Function, banco_dados):
         self.label_chave_acesso = Entry(self.PrimeiraTelaFrame, bd=2, bg='white', fg='black', 
                                     font= ('verdana', '8', 'bold'))
         self.label_chave_acesso.place(relx=0.23, rely=0.01, relwidth=0.6, relheight=0.12)
+   
     def ListaPrimeiraTelaFrame2(self):
         #Lista no qual irar ficar os resultados do looping das label
         self.Lista = ttk.Treeview(self.PrimeiraTelaFrame2, height=3, columns=("Comando", "chave_acesso"))
@@ -69,34 +74,3 @@ class Tela(Function, banco_dados):
         self.Lista.configure(yscroll=self.Scroll_lista.set)
         self.Scroll_lista.place(relx=0.96, rely=0.015, relwidth=0.04, relheight=0.85)
 
-class SegundaTelaBanco:
-    def telaBancoConfig(self):
-        self.root2 = Toplevel()
-        self.root2.title("Configuração do banco")
-        self.root2.configure(background = '#87ceeb')
-        self.root2.geometry('300x200+350+100')
-        self.root2.resizable(True, True)
-        self.root2.transient(self.root)
-        self.root2.focus_force()
-        self.root2.grab_set()
-
-
-        #Definição das label na tela do Banco:
-        self.labelHostDB = Label(self.root2, text="Host:", fg='black', bg='#87ceeb',
-                                    font= ('verdana', '8', 'bold'))
-        self.labelHostDB.place(relx=0.11, rely=0.01, relwidth=0.2, relheight=0.1)
-        self.respostaHostDB = Entry(self.root2, bd=2, bg='white', fg='black', 
-                                    font= ('verdana', '8', 'bold'))
-        self.respostaHostDB.place(relx=0.35, rely=0.01, relwidth=0.5, relheight=0.1)
-        self.respostaDB = Entry(self.root2, bd=2, bg='white', fg='black', 
-                                    font= ('verdana', '8', 'bold'))
-        self.respostaDB.place(relx=0.35, rely=0.15, relwidth=0.5, relheight=0.1)
-        self.labelDB = Label(self.root2, text="DataBase:", fg='black', background='#87ceeb',
-                                    font= ('verdana', '8', 'bold'))
-        self.labelDB.place(relx=0.02, rely=0.15, relwidth=0.3, relheight=0.1)
-        self.labelUserDB  = Label(self.root2, text="Usuário:", fg='black', background='#87ceeb',
-                                    font= ('verdana', '8', 'bold'))
-        self.labelUserDB.place(relx=0.02, rely=0.3, relwidth=0.3, relheight=0.1)
-        self.respostaUserDB = Entry(self.root2, bd=2, bg='white', fg='black', 
-                                    font= ('verdana', '8', 'bold'))
-        self.respostaUserDB.place(relx=0.35, rely=0.15, relwidth=0.5, relheight=0.1)

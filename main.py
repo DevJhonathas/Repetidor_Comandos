@@ -1,6 +1,7 @@
-from layout import Tela, SegundaTelaBanco
+from layout import Tela
 from db_connect import *
 from functions import *
+from LayoutDB import SegundaTelaBanco
 
 root = Tk()
 class Construtor(Tela, SegundaTelaBanco):
