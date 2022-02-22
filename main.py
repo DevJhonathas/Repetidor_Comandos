@@ -13,5 +13,6 @@ class Construtor(Tela, SegundaTelaBanco):
         self.LabelPrimeiraTelaFrame()
         self.ListaPrimeiraTelaFrame2()
         self.MontaTabelas()
+        self.repetidorChaveAcesso()
         self.root.mainloop()
 Construtor()
